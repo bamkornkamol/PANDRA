@@ -29,6 +29,12 @@ import { SignupComponent } from './view/signup/signup.component';
 import { HistoryComponent } from './view/history/history.component';
 import { FooterComponent } from './view/footer/footer.component';
 
+import { ToastModule } from 'primeng/toast';
+import { PrimeNGModule } from './modules/primeng.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ConfirmationService, MessageService } from 'primeng/api';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,12 +62,19 @@ import { FooterComponent } from './view/footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    PrimeNGModule,
+    ToastModule,
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [
+    MessageService,
+    ConfirmationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

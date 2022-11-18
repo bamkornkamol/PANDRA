@@ -1,20 +1,35 @@
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center">
-        <a class="item-boxs">
-            <img src="" alt="">
-            <p></p>
-        </a>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
-        </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
-        </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
-        </div>
+    <div class="p-3 mt-5">
+        <h1 class="font-bold"><strong>All Festival</strong></h1>
+    </div>
+    <div class="gird-display mb-5">
+        <ng-container *ngFor="let data of halloweenList">
+            <div class="item-boxs mb-4" (click)="showModalDialog(data)">
+                <img [src]="data.img1" height="300px">
+                <div class="text-left mt-3 mx-3">
+                    <h5>{{ data.name }}</h5>
+                    <h5>{{ data.price + " บาท" }}</h5>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngFor="let data of christmasList">
+            <div class="item-boxs mb-4" (click)="showModalDialog(data)">
+                <img [src]="data.img1" height="300px">
+                <div class="text-left mt-3 mx-3">
+                    <h5>{{ data.name }}</h5>
+                    <h5>{{ data.price + " บาท" }}</h5>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>
+
+<p-dialog header="Header" [resizable]="false" [modal]="true" [draggable]="false" [(visible)]="displayModal"
+    [style]="{width: '75vw'}" [style]="{width: '50vw'}">
+    <!-- จัด Lyoout -->
+    <div>
+        <p>{{ selectedProduct.name }}</p>
+        <p>{{ selectedProduct.price }}</p>
+    </div>
+</p-dialog>
