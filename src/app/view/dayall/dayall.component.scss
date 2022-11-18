@@ -12,7 +12,21 @@ img {
     grid-template-columns: repeat(4, 1fr);
 }
 
+.smallimg{
+    width: 70px;
+}
+
 a {
     text-decoration: none;
     color: #333;
+}
+
+.buttonadd {
+    border: transparent;
+    border-radius: 30px;
+    padding: 10px 15px 10px 15px;
+    background-color: #333;
+    color: #ffffff;
+    margin-top: 200px;
+    margin-left: 300px;
 }
