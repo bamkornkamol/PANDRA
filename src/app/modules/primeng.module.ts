@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TabViewModule } from 'primeng/tabview';
@@ -46,10 +45,12 @@ import { ScrollTopModule } from 'primeng/scrolltop';
 import { TimelineModule } from 'primeng/timeline';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { FileUploadModule } from 'primeng/fileupload';
-import {GalleriaModule} from 'primeng/galleria';
-import {CarouselModule} from 'primeng/carousel';
-import {ImageModule} from 'primeng/image';
-import {BadgeModule} from 'primeng/badge';
+import { GalleriaModule } from 'primeng/galleria';
+import { CarouselModule } from 'primeng/carousel';
+import { ImageModule } from 'primeng/image';
+import { BadgeModule } from 'primeng/badge';
+import { SidebarModule } from 'primeng/sidebar';
+
 
 
 let modules = [
@@ -101,13 +102,13 @@ let modules = [
   GalleriaModule,
   CarouselModule,
   ImageModule,
-  BadgeModule
+  BadgeModule,
+  SidebarModule
 ]
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     ...modules
   ],
   declarations: [

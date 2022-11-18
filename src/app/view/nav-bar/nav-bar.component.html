@@ -1,5 +1,6 @@
 <nav class="px-5">
-  <img src="https://cdn.discordapp.com/attachments/962290283251400764/1042901600143945758/pandra.png" width="220px" routerLink="/home">
+  <img src="https://cdn.discordapp.com/attachments/962290283251400764/1042901600143945758/pandra.png" width="220px"
+    routerLink="/home">
   <div class="d-flex align-items-center justify-content-between" style="width: 100%;">
     <div class="m-5">
       <a routerLink="/dayall" class="me-5 text-black h3"><strong>วันเทศกาล</strong></a>
@@ -9,8 +10,14 @@
       <a routerLink="/ringall" class="me-5 text-black h3"><strong>เเหวน</strong></a>
     </div>
     <div class="">
-      <i class="pi pi-shopping-cart m-3" style="font-size: 1.75rem"></i>
-      <i class="pi pi-user" style="font-size: 1.5rem"></i>
+      <i class="pi pi-shopping-cart m-3 me-3" style="font-size: 1.75rem" (click)="openCart()"></i>
+      <i class="pi pi-user" style="font-size: 1.5rem" (click)="menu.toggle($event)"></i>
     </div>
   </div>
 </nav>
+
+<p-sidebar [(visible)]="display" [style]="{width:'40em'}" position="right" [transitionOptions]="'300ms'">
+  <!-- Content -->
+</p-sidebar>
+
+<p-menu #menu [popup]="true" [model]="items" styleClass="mt-2"></p-menu>
