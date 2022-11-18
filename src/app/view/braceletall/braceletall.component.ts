@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getDocs, Firestore, collection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-braceletall',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BraceletallComponent implements OnInit {
 
-  constructor() { }
+  displayModal: boolean = false;
+
+  BraceletList: any = [];
+  selectedProduct: any = [];
+
+  constructor(
+    private firestore: Firestore,
+  ) {
+    this.getBracelet();
+  }
 
   ngOnInit(): void {
   }
 
+  getBracelet() {
+    const firebase = collection(this.firestore, 'all_bracelet');
+    getDocs(firebase).then((response) => {
+      this.BraceletList = [...response.docs.map((item) => {
+        return { ...item.data(), id: item.id }
+      })]
+    })
+  }
+
+  showModalDialog(data: any) {
+    this.displayModal = true;
+    this.selectedProduct = data;
+  }
 }

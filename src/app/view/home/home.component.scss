@@ -9,13 +9,12 @@ img {
     width: 100%;
 }
 
-.item-boxs{
-    background-color: rgb(237, 237, 237);
-    width: 25%;
-    height: 350px;
-    margin: 20px;
+.item-boxs:hover {
+    cursor: pointer;
 }
 
-.item-boxs:hover{
-    cursor: pointer;
+.gird-display {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
 }

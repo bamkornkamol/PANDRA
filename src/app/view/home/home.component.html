@@ -38,46 +38,83 @@
     </div>
 </div>
 
-<div class="container mt-4">
-    <h2>สินค้าใหม่</h2>
-    <div class="d-flex justify-content-between align-items-center">
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
+<div class="container mt-5">
+    <div class="p-3 mt-5">
+        <h1 class="font-bold"><strong>สินค้าใหม่</strong></h1>
+    </div>
+    <div class="gird-display my-5">
+        <div class="item-boxs mb-4" (click)="showModalDialog(halloweenList[randomValue])">
+            <img [src]="halloweenList[randomValue].img1" height="300px">
+            <div class="text-left mt-3 mx-3">
+                <h5>{{ halloweenList[randomValue].name }}</h5>
+                <h5>{{ halloweenList[randomValue].price + " บาท" }}</h5>
+            </div>
         </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
+        <div class="item-boxs mb-4" (click)="showModalDialog(halloweenList[randomValue2])">
+            <img [src]="halloweenList[randomValue2].img1" height="300px">
+            <div class="text-left mt-3 mx-3">
+                <h5>{{ halloweenList[randomValue2].name }}</h5>
+                <h5>{{ halloweenList[randomValue2].price + " บาท" }}</h5>
+            </div>
         </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
+        <div class="item-boxs mb-4" (click)="showModalDialog(christmasList[randomValue3])">
+            <img [src]="christmasList[randomValue3].img1" height="300px">
+            <div class="text-left mt-3 mx-3">
+                <h5>{{ christmasList[randomValue3].name }}</h5>
+                <h5>{{ christmasList[randomValue3].price + " บาท" }}</h5>
+            </div>
         </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
+        <div class="item-boxs mb-4" (click)="showModalDialog(christmasList[randomValue4])">
+            <img [src]="christmasList[randomValue4].img1" height="300px">
+            <div class="text-left mt-3 mx-3">
+                <h5>{{ christmasList[randomValue4].name }}</h5>
+                <h5>{{ christmasList[randomValue4].price + " บาท" }}</h5>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container mt-2">
-    <h2>สินค้าแนะนำ</h2>
-    <div class="d-flex justify-content-between align-items-center">
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
+<div class="container mt-4">
+    <div class="p-3 mt-5">
+        <h1 class="font-bold"><strong>สินค้าเเนะนำ</strong></h1>
+    </div>
+    <div class="gird-display mt-5">
+        <div class="item-boxs mb-4" (click)="showModalDialog(BraceletList[randomValue5])">
+            <img [src]="BraceletList[randomValue5].img1" height="300px">
+            <div class="text-left mt-3 mx-3">
+                <h5>{{ BraceletList[randomValue5].name }}</h5>
+                <h5>{{ BraceletList[randomValue5].price + " บาท" }}</h5>
+            </div>
         </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
+        <div class="item-boxs mb-4" (click)="showModalDialog(earingList[randomValue6])">
+            <img [src]="earingList[randomValue6].img1" height="300px">
+            <div class="text-left mt-3 mx-3">
+                <h5>{{ earingList[randomValue6].name }}</h5>
+                <h5>{{ earingList[randomValue6].price + " บาท" }}</h5>
+            </div>
         </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
+        <div class="item-boxs mb-4" (click)="showModalDialog(neckLaceList[randomValue7])">
+            <img [src]="neckLaceList[randomValue7].img1" height="300px">
+            <div class="text-left mt-3 mx-3">
+                <h5>{{ neckLaceList[randomValue7].name }}</h5>
+                <h5>{{ neckLaceList[randomValue7].price + " บาท" }}</h5>
+            </div>
         </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
+        <div class="item-boxs mb-4" (click)="showModalDialog(ringList[randomValue8])">
+            <img [src]="ringList[randomValue8].img1" height="300px">
+            <div class="text-left mt-3 mx-3">
+                <h5>{{ ringList[randomValue8].name }}</h5>
+                <h5>{{ ringList[randomValue8].price + " บาท" }}</h5>
+            </div>
         </div>
     </div>
 </div>
+
+<p-dialog header="Header" [resizable]="false" [modal]="true" [draggable]="false" [(visible)]="displayModal"
+    [style]="{width: '75vw'}" [style]="{width: '50vw'}">
+    <!-- จัด Lyoout -->
+    <div>
+        <p>{{ selectedProduct.name }}</p>
+        <p>{{ selectedProduct.price }}</p>
+    </div>
+</p-dialog>
