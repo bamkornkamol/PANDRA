@@ -1,0 +1,31 @@
+.container_log {
+    margin-top: 5%;
+    align-items: center;
+}
+.form_log {
+    margin: 25px;
+    text-align: center;
+}
+.lable_log {
+    right: 50px;
+    margin-bottom: 15px;
+}
+.input_log {
+    margin: 0 0 15px;
+    padding: 10px;
+    width: 30%;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #C6C6C6;
+}
+
+form a {
+    color: #a9a9a9;
+    text-decoration:underline;
+}
+
+form a:hover{
+    color: #8f8f8f;
+    text-decoration:underline;
+    cursor: default;
+}
