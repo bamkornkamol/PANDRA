@@ -13,6 +13,7 @@ export class EarmarComponent implements OnInit {
 
   earingmarList: any = [];
   selectedProduct: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

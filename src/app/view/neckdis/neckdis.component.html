@@ -9,7 +9,7 @@
     <div class="gird-display my-5">
         <ng-container *ngFor="let data of neckLacedisList">
             <div class="item-boxs mb-4" (click)="showModalDialog(data)">
-                <img [src]="data.img1" height="300px">
+                <img class="imgitem" [src]="data.img1" height="300px">
                 <div class="text-left mt-3 mx-3">
                     <h5>{{ data.name }}</h5>
                     <h5>{{ data.price + " บาท" }}</h5>
@@ -29,10 +29,10 @@
                 <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img [src]="selectedProduct.img1" class="d-block w-100" alt="...">
+                        <img [src]="selectedProduct.img1" class="d-block w-100 imgitem" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img [src]="selectedProduct.img2" class="d-block w-100" alt="...">
+                        <img [src]="selectedProduct.img2" class="d-block w-100 imgitem" alt="...">
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -53,6 +53,12 @@
                 <h5>สี : {{ selectedProduct.color }}</h5>
                 <br>
                 <h4>ราคา {{ selectedProduct.price }} บาท</h4>
+                <br>
+                <p-inputNumber [size]="1" [(ngModel)]="value" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal"
+                    spinnerMode="horizontal" [step]="1" decrementButtonClass="p-button-secondary"
+                    incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus"
+                    decrementButtonIcon="pi pi-minus" mode="decimal" [min] = "1">
+                </p-inputNumber>
                 <button class="buttonadd">เพิ่มลงตะกร้าสินค้า</button>
             </div>
         </div>

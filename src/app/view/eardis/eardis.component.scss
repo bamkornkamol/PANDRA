@@ -27,10 +27,18 @@ a {
     padding: 10px 15px 10px 15px;
     background-color: #333;
     color: #ffffff;
-    margin-top: 200px;
-    margin-left: 300px;
+    margin: 110px 0 30px 300px;
 }
 
 .buttonadd:hover {
     background-color: rgb(92, 92, 92);
+}
+
+.subselect{
+    color: #747474;
+}
+
+.subselect:hover {
+    cursor: pointer;
+    color: #272727;
 }

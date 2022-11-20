@@ -14,6 +14,7 @@ export class EarallComponent implements OnInit {
   earingdisList: any = [];
   earingmarList: any = [];
   selectedProduct: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

@@ -12,6 +12,7 @@ export class BraceletdisComponent implements OnInit {
 
   BraceletList: any = [];
   selectedProduct: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

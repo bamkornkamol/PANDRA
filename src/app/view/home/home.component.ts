@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   displayModal: boolean = false;
   selectedProduct: any = [];
+  value: number = 1;
 
   randomValue: number = 0;
   randomValue2: number = 0;

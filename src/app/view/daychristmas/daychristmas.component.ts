@@ -13,6 +13,7 @@ export class DaychristmasComponent implements OnInit {
 
   selectedProduct: any = [];
   christmasList: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

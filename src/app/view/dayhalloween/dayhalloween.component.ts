@@ -12,6 +12,7 @@ export class DayhalloweenComponent implements OnInit {
 
   selectedProduct: any = [];
   halloweenList: any = [];
+  value: number = 1;
   
   constructor(
     private firestore: Firestore,

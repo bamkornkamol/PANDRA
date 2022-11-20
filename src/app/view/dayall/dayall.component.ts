@@ -14,6 +14,7 @@ export class DayallComponent implements OnInit {
   selectedProduct: any = [];
   halloweenList: any = [];
   christmasList: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

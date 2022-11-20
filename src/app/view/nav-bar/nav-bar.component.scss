@@ -41,4 +41,27 @@ i:hover {
   padding-top: 7px;
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  75% {
+    transform: rotate(0);
+  }
+}
 
+.navanima:hover {
+  animation: rotate 2s infinite linear;
+}
+
+.shadowtxt {
+  color: #000000;
+}
+
+.shadowtxt:hover{
+  text-shadow: 3px 3px 3px #cacaca;
+  color: #4a4a4a;
+}

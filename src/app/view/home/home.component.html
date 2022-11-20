@@ -16,12 +16,12 @@
             </div>
             <div class="carousel-item">
                 <img class="imgcol" style="height: 500px;"
-                    src="https://cdn.discordapp.com/attachments/1027084114458853386/1043605306774667274/1.png"
+                    src="https://cdn.discordapp.com/attachments/1027084114458853386/1043831168023396444/pandra_x_halloween_2.png"
                     class="d-block w-100" alt="img2">
             </div>
             <div class="carousel-item">
                 <img class="imgcol" style="height: 500px;"
-                    src="https://cdn.discordapp.com/attachments/1027084114458853386/1043613285787906248/Pandora_x_marvel_22_1.png"
+                    src="https://cdn.discordapp.com/attachments/1027084114458853386/1043846210513010768/Christmas_Collection.png"
                     class="d-block w-100" alt="img3">
             </div>
         </div>
@@ -44,28 +44,28 @@
     </div>
     <div class="gird-display my-5">
         <div class="item-boxs mb-4" (click)="showModalDialog(halloweenList[randomValue])">
-            <img [src]="halloweenList[randomValue].img1" height="300px">
+            <img class="imgitem" [src]="halloweenList[randomValue].img1" height="300px">
             <div class="text-left mt-3 mx-3">
                 <h5>{{ halloweenList[randomValue].name }}</h5>
                 <h5>{{ halloweenList[randomValue].price + " บาท" }}</h5>
             </div>
         </div>
         <div class="item-boxs mb-4" (click)="showModalDialog(halloweenList[randomValue2])">
-            <img [src]="halloweenList[randomValue2].img1" height="300px">
+            <img class="imgitem" [src]="halloweenList[randomValue2].img1" height="300px">
             <div class="text-left mt-3 mx-3">
                 <h5>{{ halloweenList[randomValue2].name }}</h5>
                 <h5>{{ halloweenList[randomValue2].price + " บาท" }}</h5>
             </div>
         </div>
         <div class="item-boxs mb-4" (click)="showModalDialog(christmasList[randomValue3])">
-            <img [src]="christmasList[randomValue3].img1" height="300px">
+            <img class="imgitem" [src]="christmasList[randomValue3].img1" height="300px">
             <div class="text-left mt-3 mx-3">
                 <h5>{{ christmasList[randomValue3].name }}</h5>
                 <h5>{{ christmasList[randomValue3].price + " บาท" }}</h5>
             </div>
         </div>
         <div class="item-boxs mb-4" (click)="showModalDialog(christmasList[randomValue4])">
-            <img [src]="christmasList[randomValue4].img1" height="300px">
+            <img class="imgitem" [src]="christmasList[randomValue4].img1" height="300px">
             <div class="text-left mt-3 mx-3">
                 <h5>{{ christmasList[randomValue4].name }}</h5>
                 <h5>{{ christmasList[randomValue4].price + " บาท" }}</h5>
@@ -80,28 +80,28 @@
     </div>
     <div class="gird-display mt-5">
         <div class="item-boxs mb-4" (click)="showModalDialog(BraceletList[randomValue5])">
-            <img [src]="BraceletList[randomValue5].img1" height="300px">
+            <img class="imgitem" [src]="BraceletList[randomValue5].img1" height="300px">
             <div class="text-left mt-3 mx-3">
                 <h5>{{ BraceletList[randomValue5].name }}</h5>
                 <h5>{{ BraceletList[randomValue5].price + " บาท" }}</h5>
             </div>
         </div>
         <div class="item-boxs mb-4" (click)="showModalDialog(earingList[randomValue6])">
-            <img [src]="earingList[randomValue6].img1" height="300px">
+            <img class="imgitem" [src]="earingList[randomValue6].img1" height="300px">
             <div class="text-left mt-3 mx-3">
                 <h5>{{ earingList[randomValue6].name }}</h5>
                 <h5>{{ earingList[randomValue6].price + " บาท" }}</h5>
             </div>
         </div>
         <div class="item-boxs mb-4" (click)="showModalDialog(neckLaceList[randomValue7])">
-            <img [src]="neckLaceList[randomValue7].img1" height="300px">
+            <img class="imgitem" [src]="neckLaceList[randomValue7].img1" height="300px">
             <div class="text-left mt-3 mx-3">
                 <h5>{{ neckLaceList[randomValue7].name }}</h5>
                 <h5>{{ neckLaceList[randomValue7].price + " บาท" }}</h5>
             </div>
         </div>
         <div class="item-boxs mb-4" (click)="showModalDialog(ringList[randomValue8])">
-            <img [src]="ringList[randomValue8].img1" height="300px">
+            <img class="imgitem" [src]="ringList[randomValue8].img1" height="300px">
             <div class="text-left mt-3 mx-3">
                 <h5>{{ ringList[randomValue8].name }}</h5>
                 <h5>{{ ringList[randomValue8].price + " บาท" }}</h5>
@@ -119,10 +119,10 @@
                 <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img [src]="selectedProduct.img1" class="d-block w-100" alt="...">
+                        <img [src]="selectedProduct.img1" class="d-block w-100 imgitem" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img [src]="selectedProduct.img2" class="d-block w-100" alt="...">
+                        <img [src]="selectedProduct.img2" class="d-block w-100 imgitem" alt="...">
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -143,7 +143,13 @@
                 <h5>สี : {{ selectedProduct.color }}</h5>
                 <br>
                 <h4>ราคา {{ selectedProduct.price }} บาท</h4>
-                <button *ngIf="user | async as user;" class="buttonadd">เพิ่มลงตะกร้าสินค้า</button>
+                <br>
+                <p-inputNumber [size]="1" [(ngModel)]="value" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal"
+                    spinnerMode="horizontal" [step]="1" decrementButtonClass="p-button-secondary"
+                    incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus"
+                    decrementButtonIcon="pi pi-minus" mode="decimal" [min] = "1">
+                </p-inputNumber>
+                <button class="buttonadd">เพิ่มลงตะกร้าสินค้า</button>
             </div>
         </div>
     </div>

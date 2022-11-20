@@ -12,6 +12,7 @@ export class RingdisComponent implements OnInit {
 
   ringdisList: any = [];
   selectedProduct: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

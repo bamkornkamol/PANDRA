@@ -14,6 +14,7 @@ export class EardisComponent implements OnInit {
 
   earingdisList: any = [];
   selectedProduct: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

@@ -13,6 +13,7 @@ export class NeckmarComponent implements OnInit {
 
   neckLacemarList: any = [];
   selectedProduct: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

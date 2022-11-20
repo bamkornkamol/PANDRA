@@ -14,6 +14,7 @@ export class RingallComponent implements OnInit {
   ringdisList: any = [];
   ringmarList: any = [];
   selectedProduct: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,

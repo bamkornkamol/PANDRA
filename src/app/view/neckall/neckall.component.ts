@@ -14,6 +14,7 @@ export class NeckallComponent implements OnInit {
   neckLacedisList: any = [];
   neckLacemarList: any = [];
   selectedProduct: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,
