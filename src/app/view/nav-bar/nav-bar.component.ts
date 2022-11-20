@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, authState } from '@angular/fire/auth';
-import { doc, docData, Firestore } from '@angular/fire/firestore';
+import { addDoc, collection, deleteDoc, doc, docData, Firestore, getDocs } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { MenuItem, MessageService } from 'primeng/api';
 import { Observable, of, switchMap } from 'rxjs';
@@ -13,6 +13,10 @@ import { Observable, of, switchMap } from 'rxjs';
 export class NavBarComponent implements OnInit {
   user = this.getCurrentUser();
 
+  cartList: any = [];
+  reset: boolean = false;
+  totalPrice: number = 0;
+
   display: boolean = false;
   items = [
     {
@@ -23,7 +27,7 @@ export class NavBarComponent implements OnInit {
     {
       label: 'ออกจากระบบ',
       icon: 'pi pi-fw pi-sign-out',
-      command: () => {this.logout() }
+      command: () => { this.logout() }
     },
   ];
   value: number = 1;
@@ -36,6 +40,7 @@ export class NavBarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getCart(false);
   }
 
   openCart() {
@@ -44,9 +49,6 @@ export class NavBarComponent implements OnInit {
 
   goHistory() {
     this.router.navigate(['/history']);
-  }
-
-  signOut() {
   }
 
   getCurrentUser(): Observable<any> {
@@ -63,13 +65,70 @@ export class NavBarComponent implements OnInit {
     );
   }
 
+  getCart(reset: boolean) {
+    if (this.user.subscribe((user) => {
+      if (user) {
+        if (reset === true) {
+          this.totalPrice = 0;
+          this.cartList = [];
+          this.reset = false;
+        }
+        const ref = collection(this.firestore, 'users', user.uid, 'carts');
+        getDocs(ref).then((response) => {
+          response.docs.map((item) => {
+            this.cartList.push(item.data());
+            this.totalPrice += item.data()['product']['price'] * item.data()['amount'];
+          })
+        })
+      }
+    }))
+      return;
+  }
+
+  removeitem(item: any) {
+    if (this.user.subscribe((user) => {
+      if (user) {
+        const ref = collection(this.firestore, 'users', user.uid, 'carts');
+        getDocs(ref).then((response) => {
+          response.docs.map((i) => {
+            if (i.data()['product']['id'] === item.product.id) {
+              deleteDoc(i.ref)
+                .then(() => {
+                  this.getCart(true);
+                  location.reload();
+                })
+            }
+          })
+        })
+      }
+    }))
+      return;
+  }
+
+  submitbuy() {
+    this.user.subscribe((user) => {
+      if (user) {
+        const ref = collection(this.firestore, 'users', user.uid, 'orders');
+        addDoc(ref, {
+          totalPrice: this.totalPrice,
+          cartList: this.cartList,
+        })
+          .then(() => {
+            alert("ยืนยันการสั่งซื้อสำเร็จ");
+            location.reload();
+          })
+      }
+    })
+
+  }
+
   tologin() {
     this.router.navigate(['/signin']);
   }
 
   logout() {
     this.auth.signOut().then(
-      () => {this.router.navigate(['/signin'])}
+      () => { this.router.navigate(['/signin']) }
     )
   }
 }
