@@ -1,10 +1,17 @@
 <div class="container container_log">
     <h1 style="text-align: center;">เข้าสู่ระบบ</h1>
-    <form class="form form_log" action="">
-        <label class="lable_log" for="">เข้าสู่ระบบผ่านอีเมล</label> <br>
-        <input class="input_log" type="text" placeholder="อีเมล*"> <br>
-        <input class="input_log" type="text" placeholder="รหัสผ่าน*"> <br>
-        <a>ยังไม่มีบัญชี?</a><br>
-        <button type="button" class="btn btn-dark btn-lg mt-2">เข้าสู่ระบบ</button>
+    <form [formGroup]="loginform" class="form form_log">
+        <div class="box">
+            <div>
+                <input formControlName="email" class="input_log" type="email" placeholder="อีเมล">
+                <span *ngIf="!loginform.get('email')?.valid" class="text-error" [hidden]="errorcheck">กรุณากรอกอีเมลให้ถูกต้อง</span>
+            </div>
+            <div>
+                <input formControlName="pass" class="input_log" type="password" placeholder="รหัสผ่าน">
+                <span *ngIf="!loginform.get('pass')?.valid" class="text-error" [hidden]="errorcheck">กรุณากรอกรหัสผ่านให้ถูกต้อง</span>
+            </div>
+        </div>
     </form>
+    <a routerLink="/signup">ยังไม่มีบัญชีผู้ใช้?</a>
+    <button (click)="submitlogin()" class="btn btn-dark btn-lg mt-2">เข้าสู่ระบบ</button>
 </div>

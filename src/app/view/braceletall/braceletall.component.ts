@@ -10,13 +10,18 @@ export class BraceletallComponent implements OnInit {
 
   displayModal: boolean = false;
 
-  BraceletList: any = [];
   selectedProduct: any = [];
+  BraceletList: any = [];
+  BraceletdisList: any = [];
+  BraceletmarList: any = [];
+  value: number = 1;
 
   constructor(
     private firestore: Firestore,
   ) {
     this.getBracelet();
+    this.getBradis();
+    this.getBramar();
   }
 
   ngOnInit(): void {
@@ -31,8 +36,27 @@ export class BraceletallComponent implements OnInit {
     })
   }
 
+  getBradis() {
+    const firebase = collection(this.firestore, 'dis_bracelet');
+    getDocs(firebase).then((response) => {
+      this.BraceletdisList = [...response.docs.map((item) => {
+        return { ...item.data(), id: item.id }
+      })]
+    })
+  }
+
+  getBramar() {
+    const firebase = collection(this.firestore, 'mar_bracelet');
+    getDocs(firebase).then((response) => {
+      this.BraceletmarList = [...response.docs.map((item) => {
+        return { ...item.data(), id: item.id }
+      })]
+    })
+  }
+
   showModalDialog(data: any) {
     this.displayModal = true;
     this.selectedProduct = data;
   }
 }
+

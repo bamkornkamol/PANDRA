@@ -11,3 +11,34 @@ img {
     grid-gap: 10px;
     grid-template-columns: repeat(4, 1fr);
 }
+
+.smallimg{
+    width: 70px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.buttonadd {
+    border: transparent;
+    border-radius: 30px;
+    padding: 10px 15px 10px 15px;
+    background-color: #333;
+    color: #ffffff;
+    margin: 130px 0 30px 300px;
+}
+
+.buttonadd:hover {
+    background-color: rgb(92, 92, 92);
+}
+
+.subselect{
+    color: #747474;
+}
+
+.subselect:hover {
+    cursor: pointer;
+    color: #272727;
+}

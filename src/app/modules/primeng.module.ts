@@ -50,6 +50,9 @@ import { CarouselModule } from 'primeng/carousel';
 import { ImageModule } from 'primeng/image';
 import { BadgeModule } from 'primeng/badge';
 import { SidebarModule } from 'primeng/sidebar';
+import {InputNumberModule} from 'primeng/inputnumber';
+
+
 
 
 
@@ -103,7 +106,8 @@ let modules = [
   CarouselModule,
   ImageModule,
   BadgeModule,
-  SidebarModule
+  SidebarModule,
+  InputNumberModule
 ]
 
 @NgModule({

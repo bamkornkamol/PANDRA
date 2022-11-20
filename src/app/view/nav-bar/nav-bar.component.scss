@@ -1,5 +1,5 @@
 nav {
-  height: 100px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,7 +11,7 @@ a {
   color: #fff;
 }
 
-img {
+.imgnav {
   cursor: pointer;
 }
 
@@ -23,3 +23,22 @@ i:hover {
   background-color: antiquewhite;
   border-radius: 50%;
 }
+
+.itembox {
+  width: 37em;
+  height: 18em;
+  border-bottom: 1px solid #8c8c8c;
+}
+
+.butsubmit {
+  width: 350px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: #151515;
+  color: #fff;
+  text-align: center;
+  font-size: 22px;
+  padding-top: 7px;
+}
+
+

@@ -11,12 +11,16 @@ export class EarallComponent implements OnInit {
   displayModal: boolean = false;
 
   earingList: any = [];
+  earingdisList: any = [];
+  earingmarList: any = [];
   selectedProduct: any = [];
 
   constructor(
     private firestore: Firestore,
   ) { 
     this.getEaring();
+    this.getEaringdis();
+    this.getEaringmar();
   }
 
   ngOnInit(): void {
@@ -26,6 +30,24 @@ export class EarallComponent implements OnInit {
     const firebase = collection(this.firestore, 'all_ear');
     getDocs(firebase).then((response) => {
       this.earingList = [...response.docs.map((item) => {
+        return { ...item.data(), id: item.id }
+      })]
+    })
+  }
+
+  getEaringdis() {
+    const firebase = collection(this.firestore, 'dis_ear');
+    getDocs(firebase).then((response) => {
+      this.earingdisList = [...response.docs.map((item) => {
+        return { ...item.data(), id: item.id }
+      })]
+    })
+  }
+
+  getEaringmar() {
+    const firebase = collection(this.firestore, 'mar_ear');
+    getDocs(firebase).then((response) => {
+      this.earingmarList = [...response.docs.map((item) => {
         return { ...item.data(), id: item.id }
       })]
     })

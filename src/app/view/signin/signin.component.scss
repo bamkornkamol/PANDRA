@@ -1,31 +1,45 @@
 .container_log {
-    margin-top: 5%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 .form_log {
     margin: 25px;
     text-align: center;
 }
-.lable_log {
-    right: 50px;
-    margin-bottom: 15px;
+
+.box{
+    width: 450px;
+    line-height: 20px;
 }
+
 .input_log {
-    margin: 0 0 15px;
+    width: 100%;
     padding: 10px;
-    width: 30%;
     border-radius: 5px;
     border-width: 1px;
     border-color: #C6C6C6;
+    margin: 5px;
 }
 
-form a {
+a {
     color: #a9a9a9;
     text-decoration:underline;
 }
 
-form a:hover{
+a:hover{
     color: #8f8f8f;
     text-decoration:underline;
     cursor: default;
+}
+
+.text-error {
+    color: red;
+    font-size: 15px;
+}
+
+.btn {
+    width: 300px;
 }

@@ -1,20 +1,59 @@
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center">
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
-        </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
-        </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
-        </div>
-        <div class="item-boxs">
-            <img src="" alt="">
-            <p></p>
-        </div>
+    <div class="p-3 my-5 d-flex flex-row">
+      <h2 class="font-bold"><strong>วันฮาโลวีน</strong></h2>
+      <h2 class="ms-3">-</h2>
+      <h4 class="font-bold ms-3 subselect mt-2" routerLink="/dayall">PANDRA x เทศกาล</h4>
+      <h4 class="ms-3 me-3 mt-2" style="color: #747474;">/</h4>
+      <h4 class="font-bold subselect mt-2" routerLink="/daychristmas">วันคริสต์มาส</h4>
+    </div>
+    <div class="gird-display mb-5">
+        <ng-container *ngFor="let data of halloweenList">
+            <div class="item-boxs mb-4" (click)="showModalDialog(data)">
+                <img [src]="data.img1" height="300px">
+                <div class="text-left mt-3 mx-3">
+                    <h5>{{ data.name }}</h5>
+                    <h5>{{ data.price + " บาท" }}</h5>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>
+
+<p-dialog [resizable]="false" [modal]="true" [draggable]="false" [(visible)]="displayModal"
+    [style]="{width: '75vw'}" [style]="{width: '70vw'}">
+    <!-- จัด Lyoout -->
+    <div>
+        <div class="row">
+            <div class="col pb-5">
+                <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img [src]="selectedProduct.img1" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img [src]="selectedProduct.img2" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="col">
+                <br><br>
+                <h2>{{ selectedProduct.name }}</h2>
+                
+                <h5>โลหะ : {{ selectedProduct.iron }}</h5>
+                <h5>สี : {{ selectedProduct.color }}</h5>
+                <br>
+                <h4>ราคา {{ selectedProduct.price }} บาท</h4>
+                <button class="buttonadd">เพิ่มลงตะกร้าสินค้า</button>
+            </div>
+        </div>
+    </div>
+</p-dialog>

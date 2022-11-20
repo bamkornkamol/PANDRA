@@ -34,6 +34,7 @@ import { PrimeNGModule } from './modules/primeng.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     AppRoutingModule,
     PrimeNGModule,
     ToastModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

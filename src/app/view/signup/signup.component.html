@@ -1,13 +1,33 @@
 <div class="container container_log">
     <h1 style="text-align: center;">สร้างบัญชีใหม่</h1>
-    <form class="form form_log">
-        <input class="input_log" type="text" placeholder="ชื่อผู้ใช้"> <br>
-        <input class="input_log" type="text" placeholder="ชื่อ-นามสกุล"> <br>
-        <input class="input_log" type="text" placeholder="อีเมล"> <br>
-        <input class="input_log" type="text" placeholder="วันเกิด"> <br>
-        <input class="input_log" type="text" placeholder="ที่อยู่"> <br>
-        <input class="input_log" type="text" placeholder="เบอร์โทร"> <br>
-        <a>มีบัญชีผู้ใช้อยู่แล้ว?</a><br>
-        <button type="button" class="btn btn-dark btn-lg mt-2">ดำเนินการต่อ</button>
+    <form [formGroup]="regisForm" class="form form_log">
+        <div class="box">
+            <div>
+                <input formControlName="username" class="input_log" type="text" placeholder="ชื่อผู้ใช้">
+                <span *ngIf="!regisForm.get('username')?.valid" class="text-error" [hidden]="errorcheck">กรุณากรอกชื่อผู้ใช้</span>
+            </div>
+            <div>
+                <input formControlName="name" class="input_log" type="text" placeholder="ชื่อ-นามสกุล">
+                <span *ngIf="!regisForm.get('name')?.valid" class="text-error" [hidden]="errorcheck">กรุณากรอกชื่อ-นามสกุล</span>
+            </div>
+            <div>
+                <input formControlName="email" class="input_log" type="email" placeholder="อีเมล">
+                <span *ngIf="!regisForm.get('email')?.valid" class="text-error" [hidden]="errorcheck">กรุณากรอกอีเมลให้ถูกต้อง</span>
+            </div>
+            <div>
+                <input formControlName="pass" class="input_log" type="password" placeholder="รหัสผ่าน">
+                <span *ngIf="!regisForm.get('pass')?.valid" class="text-error" [hidden]="errorcheck">กรุณากรอกรหัสผ่านให้ครบ 8 ตัว</span>
+            </div>
+            <div>
+                <input formControlName="add" class="input_log" type="text" placeholder="ที่อยู่">
+                <span *ngIf="!regisForm.get('add')?.valid" class="text-error" [hidden]="errorcheck">กรุณากรอกที่อยู่ให้สมบูรณ์</span>
+            </div>
+            <div>
+                <input formControlName="tel" class="input_log" type="text" placeholder="เบอร์โทรศัพท์">
+                <span *ngIf="!regisForm.get('tel')?.valid" class="text-error" [hidden]="errorcheck">กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง</span>
+            </div>
+        </div>
     </form>
+    <a routerLink="/signin">มีบัญชีผู้ใช้อยู่แล้ว?</a>
+    <button (click)="submitregis()" class="btn btn-dark btn-lg mt-2">ดำเนินการต่อ</button>
 </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { getDocs, Firestore, collection } from '@angular/fire/firestore';
+import { Auth, authState } from '@angular/fire/auth';
+import { getDocs, Firestore, collection, doc, docData } from '@angular/fire/firestore';
+import { Observable, of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,7 @@ import { getDocs, Firestore, collection } from '@angular/fire/firestore';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  user = this.getCurrentUser();
 
   displayModal: boolean = false;
   selectedProduct: any = [];
@@ -29,6 +32,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private firestore: Firestore,
+    private auth: Auth
   ) {
     this.getHalloween();
     this.getChristmas();
@@ -111,6 +115,20 @@ export class HomeComponent implements OnInit {
   showModalDialog(data: any) {
     this.displayModal = true;
     this.selectedProduct = data;
+  }
+
+  getCurrentUser(): Observable<any> {
+    return authState(this.auth).pipe(
+      switchMap((user) => {
+        if (!user?.uid) {
+          return of(null);
+        }
+        const ref = doc(this.firestore, 'users', user?.uid)
+
+        console.log(docData(ref));
+        return docData(ref) as Observable<any>;
+      })
+    );
   }
 
 }

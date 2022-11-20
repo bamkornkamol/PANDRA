@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { getDocs, Firestore, collection } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'app-daychristmas',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DaychristmasComponent implements OnInit {
 
-  constructor() { }
+  displayModal: boolean = false;
+
+  selectedProduct: any = [];
+  christmasList: any = [];
+
+  constructor(
+    private firestore: Firestore,
+  ) {
+    this.getChristmas();
+  }
 
   ngOnInit(): void {
   }
 
+  showModalDialog(data: any) {
+    this.displayModal = true;
+    this.selectedProduct = data;
+  }
+
+  getChristmas() {
+    // Get Dta From Firebase
+    const firebase = collection(this.firestore, 'christmas');
+    getDocs(firebase).then((response) => {
+      this.christmasList = [...response.docs.map((item) => {
+        return { ...item.data(), id: item.id }
+      })]
+    })
+  }
 }
