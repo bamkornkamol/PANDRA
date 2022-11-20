@@ -51,12 +51,12 @@ export class HomeComponent implements OnInit {
   getRandomValue() {
     this.randomValue = Math.floor(Math.random() * 5);
     this.randomValue2 = Math.floor(Math.random() * 5);
-    this.randomValue3 = Math.floor(Math.random() * 5);
-    this.randomValue4 = Math.floor(Math.random() * 5);
-    this.randomValue5 = Math.floor(Math.random() * 7);
-    this.randomValue6 = Math.floor(Math.random() * 6);
-    this.randomValue7 = Math.floor(Math.random() * 6);
-    this.randomValue8 = Math.floor(Math.random() * 7);
+    this.randomValue3 = Math.floor(Math.random() * 4);
+    this.randomValue4 = Math.floor(Math.random() * 4);
+    this.randomValue5 = Math.floor(Math.random() * 6);
+    this.randomValue6 = Math.floor(Math.random() * 5);
+    this.randomValue7 = Math.floor(Math.random() * 5);
+    this.randomValue8 = Math.floor(Math.random() * 6);
   }
 
   getHalloween() {
