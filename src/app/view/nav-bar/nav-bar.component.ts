@@ -119,10 +119,11 @@ export class NavBarComponent implements OnInit {
             location.reload();
         })
         getDocs(del).then((response) => {
-          response.docs.map((del) => {
-            // deleteDoc(del).then(() => {
-            //   this.getCart(true);
-            // })
+          response.docs.map((i) => {
+            deleteDoc(i.ref)
+              .then(() => {
+                this.router.navigate(['/history']);
+              })
           })
         })
       }

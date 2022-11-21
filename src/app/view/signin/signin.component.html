@@ -1,6 +1,6 @@
 <div class="container container_log">
-    <h1 style="text-align: center;">เข้าสู่ระบบ</h1>
-    <form [formGroup]="loginform" class="form form_log">
+    <h1 style="text-align: center; margin-top: 90px;">เข้าสู่ระบบ</h1>
+    <form [formGroup]="loginform" class="form form_log mb-3">
         <div class="box">
             <div>
                 <input formControlName="email" class="input_log" type="email" placeholder="อีเมล">
@@ -12,6 +12,6 @@
             </div>
         </div>
     </form>
-    <a routerLink="/signup">ยังไม่มีบัญชีผู้ใช้?</a>
-    <button (click)="submitlogin()" class="btn btn-dark btn-lg mt-2">เข้าสู่ระบบ</button>
+    <a routerLink="/signup" class="mb-2">ยังไม่มีบัญชีผู้ใช้?</a>
+    <button (click)="submitlogin()" class="btn btn-dark btn-lg mt-2" style="margin-bottom: 160px;">เข้าสู่ระบบ</button>
 </div>
