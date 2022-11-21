@@ -25,9 +25,9 @@
 
 <p-sidebar [(visible)]="display" [style]="{width:'41em'}" position="right" [transitionOptions]="'300ms'">
   <!-- Content -->
-  <div *ngFor="let data of cartList" class="side" style="overflow-x: hidden;">
+  <div class="side" style="overflow-x: hidden;">
 
-      <div class="itembox mb-3" style="overflow: hidden;">
+      <div *ngFor="let data of cartList" class="itembox mb-3" style="overflow: hidden;">
         <div class="row">
           <div class="col-5">
             <img style="width: 100%;" [src]="data.product.img1">

@@ -116,6 +116,7 @@ export class NavBarComponent implements OnInit {
           .then(() => {
             alert("ยืนยันการสั่งซื้อสำเร็จ");
             location.reload();
+            this.router.navigate(['/history']);
         })
         getDocs(del).then((response) => {
           response.docs.map((i) => {
