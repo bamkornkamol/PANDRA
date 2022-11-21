@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, authState } from '@angular/fire/auth';
-import { getDocs, Firestore, collection, doc, docData } from '@angular/fire/firestore';
+import { getDocs, Firestore, collection, doc, docData, addDoc } from '@angular/fire/firestore';
 import { Observable, of, switchMap } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   displayModal: boolean = false;
   selectedProduct: any = [];
-  value: number = 1;
+  amount: number = 1;
 
   randomValue: number = 0;
   randomValue2: number = 0;
@@ -130,6 +130,27 @@ export class HomeComponent implements OnInit {
         return docData(ref) as Observable<any>;
       })
     );
+  }
+
+  addproduct(selectedProduct: any) {
+    if (this.user.subscribe((user) => {
+      if (user) {
+        const ref = collection(this.firestore, 'users', user.uid, 'carts');
+        getDocs(ref).then((response) => {
+          let isExist = false;
+          if (isExist === false) {
+            addDoc(ref, {
+              product: selectedProduct,
+              amount: this.amount
+            }).then(()=>{location.reload()})
+          }
+        })
+      }
+      else {
+        alert("กรุณาล็อคอินก่อนเพิ่มสินค้าใส่ตะกร้า");
+      }
+    }))
+      this.displayModal = false;
   }
 
 }

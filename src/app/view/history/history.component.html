@@ -1,65 +1,29 @@
 <div class="align-items-center">
     <h2>สินค้าที่สั่งซื้อแล้ว</h2>
-    <div class="container d-flex flex-column align-items-center" style="height: 550px; overflow-y: scroll;">
+    <ng-container *ngIf="cartList.length else haveNoData">
+        <div *ngFor="let data of cartList" class="container d-flex flex-column align-items-center"
+            style="height: 100%;">
 
-        <div class="boxBought">
-            <div class="row">
-                <div class="col p-3">
-                    <img class="imgBought center" src="...">
-                </div>
-                <div class="col pt-4">
-                    <p>ชื่อสินค้า</p>
-                    <p>ราคาสินค้า</p>
-                    <p>สถานะการจัดส่ง</p>
-                    <hr>
-                    <p>จำนวนที่สั่งซื้อ รวมราคาสินค้า</p>
+            <div class="boxBought" *ngFor="let pro of data.cartList">
+                <div class="row">
+                    <div class="col p-3">
+                        <img [src]="pro.product.img1" class="imgBought center" src="...">
+                    </div>
+                    <div class="col pt-4">
+                        <p>ชื่อสินค้า: {{ pro.product.name }}</p>
+                        <p>ราคาสินค้า: {{ pro.product.price }}</p>
+                        <p>สถานะการจัดส่ง: กำลังจัดส่ง</p>
+                        <hr>
+                        <p>จำนวนที่สั่งซื้อ: {{ pro.amount }} รวมราคาสินค้า:{{ pro.product.price * pro.amount }} </p>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="boxBought">
-            <div class="row">
-                <div class="col p-3">
-                    <img class="imgBought center" src="...">
-                </div>
-                <div class="col pt-4">
-                    <p>ชื่อสินค้า</p>
-                    <p>ราคาสินค้า</p>
-                    <p>สถานะการจัดส่ง</p>
-                    <hr>
-                    <p>จำนวนที่สั่งซื้อ รวมราคาสินค้า</p>
-                </div>
-            </div>
+    </ng-container>
+    <ng-template #haveNoData>
+        <div class="container d-flex flex-column align-items-center text-center" style="height: 31.5vh;">
+            <br>
+            <h5>ไม่มีสินค้าในตะกร้า</h5>
         </div>
-
-        <div class="boxBought">
-            <div class="row">
-                <div class="col p-3">
-                    <img class="imgBought center" src="...">
-                </div>
-                <div class="col pt-4">
-                    <p>ชื่อสินค้า</p>
-                    <p>ราคาสินค้า</p>
-                    <p>สถานะการจัดส่ง</p>
-                    <hr>
-                    <p>จำนวนที่สั่งซื้อ รวมราคาสินค้า</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="boxBought">
-            <div class="row">
-                <div class="col p-3">
-                    <img class="imgBought center" src="...">
-                </div>
-                <div class="col pt-4">
-                    <p>ชื่อสินค้า</p>
-                    <p>ราคาสินค้า</p>
-                    <p>สถานะการจัดส่ง</p>
-                    <hr>
-                    <p>จำนวนที่สั่งซื้อ รวมราคาสินค้า</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    </ng-template>
 </div>

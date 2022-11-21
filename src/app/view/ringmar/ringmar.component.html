@@ -56,12 +56,12 @@
         <br>
         <h4>ราคา {{ selectedProduct.price }} บาท</h4>
         <br>
-        <p-inputNumber [size]="1" [(ngModel)]="value" [showButtons]="true" buttonLayout="horizontal"
+        <p-inputNumber [size]="1" [(ngModel)]="amount" [showButtons]="true" buttonLayout="horizontal"
           inputId="horizontal" spinnerMode="horizontal" [step]="1" decrementButtonClass="p-button-secondary"
           incrementButtonClass="p-button-secondary" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"
           mode="decimal" [min]="1">
         </p-inputNumber>
-        <button class="buttonadd">เพิ่มลงตะกร้าสินค้า</button>
+        <button class="buttonadd" (click)="addproduct(selectedProduct)">เพิ่มลงตะกร้าสินค้า</button>
       </div>
     </div>
   </div>

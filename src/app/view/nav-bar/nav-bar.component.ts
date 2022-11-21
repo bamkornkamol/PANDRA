@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth, authState } from '@angular/fire/auth';
-import { addDoc, collection, deleteDoc, doc, docData, Firestore, getDocs } from '@angular/fire/firestore';
+import { addDoc, collection, deleteDoc, doc, docData, Firestore, getDoc, getDocs } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { MenuItem, MessageService } from 'primeng/api';
 import { Observable, of, switchMap } from 'rxjs';
@@ -108,6 +108,7 @@ export class NavBarComponent implements OnInit {
   submitbuy() {
     this.user.subscribe((user) => {
       if (user) {
+        const del = collection(this.firestore, 'users', user.uid, 'carts');
         const ref = collection(this.firestore, 'users', user.uid, 'orders');
         addDoc(ref, {
           totalPrice: this.totalPrice,
@@ -116,7 +117,14 @@ export class NavBarComponent implements OnInit {
           .then(() => {
             alert("ยืนยันการสั่งซื้อสำเร็จ");
             location.reload();
+        })
+        getDocs(del).then((response) => {
+          response.docs.map((del) => {
+            // deleteDoc(del).then(() => {
+            //   this.getCart(true);
+            // })
           })
+        })
       }
     })
 

@@ -48,17 +48,11 @@ export class BraceletdisComponent implements OnInit {
         const ref = collection(this.firestore, 'users', user.uid, 'carts');
         getDocs(ref).then((response) => {
           let isExist = false;
-          response.docs.map((item) => {
-            if (item.data()['product']['id'] === selectedProduct.id) {
-              isExist = true;
-              alert("กรุณาเพิ่มจำนวนสินค้าในตะกร้า")
-            }
-          })
           if (isExist === false) {
             addDoc(ref, {
               product: selectedProduct,
               amount: this.amount
-            })
+            }).then(()=>{location.reload()})
           }
         })
       }
