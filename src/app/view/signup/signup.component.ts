@@ -31,12 +31,10 @@ export class SignupComponent implements OnInit {
 
   submitregis() {
     let values = this.regisForm.value;
-    console.log(values)
 
     const {username, name, email, pass, add, tel} = this.regisForm.value;
     if (!this.regisForm.valid || !username || !name || !email || !pass || !add || !tel){
       this.errorcheck = false;
-      console.log("error")
       return;
     }
 

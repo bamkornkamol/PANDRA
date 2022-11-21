@@ -33,7 +33,6 @@ export class HistoryComponent implements OnInit {
         }
         const ref = doc(this.firestore, 'users', user?.uid)
 
-        console.log(docData(ref));
         return docData(ref) as Observable<any>;
       })
     );

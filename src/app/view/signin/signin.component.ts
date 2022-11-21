@@ -26,12 +26,10 @@ export class SigninComponent implements OnInit {
 
   submitlogin() {
     let values = this.loginform.value;
-    console.log(values)
 
     const {email, pass} = this.loginform.value;
     if (!this.loginform.valid || !email || !pass){
       this.errorcheck = false;
-      console.log("error")
       return;
     }
 

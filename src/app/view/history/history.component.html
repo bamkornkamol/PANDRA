@@ -10,11 +10,18 @@
                         <img [src]="pro.product.img1" class="imgBought center" src="...">
                     </div>
                     <div class="col pt-4">
-                        <p>ชื่อสินค้า: {{ pro.product.name }}</p>
-                        <p>ราคาสินค้า: {{ pro.product.price }}</p>
+                        <p>ชื่อสินค้า: <b>{{ pro.product.name }}</b></p>
+                        <p>ราคาสินค้า: <b>{{ pro.product.price }}</b></p>
                         <p>สถานะการจัดส่ง: กำลังจัดส่ง</p>
                         <hr>
-                        <p>จำนวนที่สั่งซื้อ: {{ pro.amount }} รวมราคาสินค้า:{{ pro.product.price * pro.amount }} </p>
+                        <div class="row">
+                            <div class="col">
+                                <p>จำนวนที่สั่งซื้อ: <b>{{ pro.amount }}</b> </p>
+                            </div>
+                            <div class="col">
+                                <p>รวมราคาสินค้า: <b>{{ pro.product.price * pro.amount }}</b> </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
